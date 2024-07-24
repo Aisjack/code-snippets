@@ -9,3 +9,14 @@
   "ConnectionStrings": {
     "DefaultConnection": "Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=DDDTesting; User Id=sa; Password=radar; Encrypt=false;"
   }
+
+
+Using local . -   
+"ConnectionStrings": {
+  "sqlConn": "Data Source=.; Initial Catalog=vxi_survey_app; Integrated Security=True; Encrypt=False;"
+}
+
+Using a server with user and pass -
+"ConnectionStrings": {
+  "sqlConn": "Server=AIS\\TWENTYNINETEEN; Database=DDDTesting; User Id=sa; Password=radar; Encrypt=false;"
+}
