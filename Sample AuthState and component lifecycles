@@ -1,0 +1,72 @@
+@inject AuthenticationStateProvider AuthenticationStateProvider // Note: to access authenticated user in this component
+@inject IJSRuntime js // Note: to use JS functions in this component
+
+<AuthorizeView>
+    Hello, @context.User.Identity?.Name.Split("\\")[1]
+</AuthorizeView>
+
+@code{
+    private string Name = string.Empty;
+
+    /*Note: When Using Blazor server is always renders the components then send it to client
+          so you can use OnInitialized
+
+          What is the use of OnInitialized?
+
+          Purpose:
+            Used for one-time initialization logic.
+            Runs after the component is created but before parameters are set.
+
+          Characteristics:
+            Runs only once per instance of a component.
+            Good for initial data loading or setup that doesn't depend on parameters.
+
+    */
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        await js.InvokeVoidAsync("alert", $"{user.Identity?.Name}");
+    }
+
+    /*Note: When Using Blazor server Prerendering is always enabled so you can use OnAfterRender
+            to components
+
+      What is the use of OnAfterRender?
+
+      Purpose:
+        Runs after the component has finished rendering.
+        Used for interacting with the DOM or performing actions that require the component to be fully rendered.
+
+      Characteristics:
+
+        Runs after every render cycle (can run multiple times).
+        Has a boolean parameter indicating if this is the first render.
+        Good for JavaScript interop or measurements that require rendered DOM.
+
+    */
+    
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        await js.InvokeVoidAsync("alert", $"{user.Identity?.Name.Split("\\")[1]}");
+    }
+
+    /* Note: There is also a OnParametersSet method
+     
+      What is the use of OnParametersSet?
+
+      Purpose:
+        Runs after parameters have been set or changed.
+        Used when you need to perform an action based on parameter values.
+
+      Characteristics:
+        Runs every time a parameter value changes.
+        Good for reacting to changes in input parameters.
+
+    */
+}
