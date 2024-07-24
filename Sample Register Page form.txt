@@ -1,0 +1,60 @@
+@page "/register"
+
+<PageTitle>Register</PageTitle>
+
+<MudPaper Class="d-flex justify-center" Elevation="0">
+    <h3>Register</h3>
+</MudPaper>
+
+
+<MudPaper Elevation="0">
+    <MudForm @bind-Model="@user" @ref="form" @bind-IsValid="@success">
+        <MudTextField @bind-Value ="user.Username"
+                      T="string"
+                      Label="Username"
+                      Required="true"
+                      RequiredError="Username is required!" />
+
+        <MudTextField @bind-Value="user.Password"
+                      T="string"
+                      InputType="InputType.Password"
+                      Label="Password"
+                      Required="true"
+                      RequiredError="Password is required!" />
+
+        <MudTextField @bind-Value="user.ConfirmPassword"
+                      T="string"
+                      InputType="InputType.Password"
+                      Label="Confirm Password"
+                      Required="true"
+                      RequiredError="Password is required!" />
+
+        <MudPaper Class="mt-5 d-flex justify-center" Elevation="0">
+            <MudButton Variant="Variant.Filled"
+                       Color="Color.Primary"
+                       DisableElevation="true"
+                       OnClick="@HandleRegistration">Register</MudButton>
+        </MudPaper>
+
+    </MudForm>
+</MudPaper>
+
+@code {
+    bool success;
+    MudForm form;
+    UserRegister user = new UserRegister();
+
+    void HandleRegistration()
+    {
+        form.Validate();
+        if(!success)
+        {
+            Console.WriteLine($"User not registered.");
+        }
+        else
+        {
+            Console.WriteLine($"Register User with the username {user.Username}.");
+        }
+
+    }
+}
