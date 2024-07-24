@@ -1,0 +1,47 @@
+**Using Git commands in PowerShell:
+
+-Ensure you're on the correct branch:
+git checkout branch-name
+!note: Replace 'branch-name' with the name of your target branch.
+
+-If the branch doesn't exist yet, create and switch to it:
+git checkout -b new-branch-name
+
+-Make your changes to the files in your local repository.
+
+-Stage the changes:
+git add .
+!note: This stages all changes. To stage specific files, replace '.' with file names.
+
+-Commit the changes:
+git commit -m "Your commit message here"
+
+-Push the changes to GitHub:
+git push origin branch-name
+
+
+**Using GitHub CLI:
+
+-Switch to the correct branch:
+gh repo clone owner/repo-name
+cd repo-name
+git checkout branch-name
+
+-If it's a new branch:
+git checkout -b new-branch-name
+
+-Make your changes to the files.
+
+-Stage and commit changes:
+git add .
+git commit -m "Your commit message here"
+
+-Push changes using GitHub CLI:
+gh pr create --fill
+!note: This creates a pull request with the changes. If you just want to push without creating a PR
+git push origin branch-name
+
+!note: Always pull the latest changes before pushing to avoid conflicts:
+git pull origin branch-name
+
+!note: If you're working on a fork, make sure your remote is set up correctly.
