@@ -1,0 +1,22 @@
+-in program.cs file
+
+app.UseStaticFiles("/appname");
+
+app.UsePathBase("/appname");
+
+app.MapBlazorHub("/appname");
+
+app.UseRouting();
+
+
+-in app.razor file
+
+<base href="@BaseUrl" />
+
+and in "@code" section
+
+[CascadingParameter]
+
+private HttpContext HttpContext { get; set; } = default!;
+
+private string BaseUrl => $"{HttpContext.Request.PathBase}/";
