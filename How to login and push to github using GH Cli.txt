@@ -1,0 +1,53 @@
+How to login to GitHub using GH cli in powershell
+
+-When you dont have GH CLI (GitHub cli) you can use this prompt to install or update the cli
+winget install --id GitHub.cli
+
+-Authenticate with GitHub: After installation, open a new PowerShell window and run
+gh auth login
+gh auth login --with-token(if you already have a token)
+
+!note: in logging in you will choose if you want to "login with a web browser" or "Paste an authentication token"
+when you choose "Paste an authentication token" you need to generate a token at "https://github.com/settings/tokens"
+in generating a token you will need to select scopes at minimum : repo, read.org, workflow, gist.
+(if you dont meet the minimum you'll have an error logging in with token.
+
+
+*Basic GitHub CLI commands
+
+-Create a new repository
+gh repo create my-new-repo --public
+!note: This creates a new public repository named "my-new-repo". Add --private instead of --public for a private repo.
+
+-Clone a repository
+gh repo clone username/repo-name
+
+-View repository details
+gh repo view username/repo-name
+
+-List your repositories
+gh repo list
+
+-Create an issue
+gh issue create --title "Bug in login" --body "There's a problem with the login form"
+
+-List pull requests
+gh pr list
+
+-Check status of checks in a pull request
+gh pr checks
+
+-Create a pull request
+gh pr create --title "Add new feature" --body "This PR adds a new login feature"
+
+-Get help
+gh --help
+gh repo --help
+gh pr --help
+
+
+!Using GitHub CLI with local Git operations:
+GitHub CLI integrates well with Git. For example, after making changes
+git add .
+git commit -m "Update README"
+gh pr create
