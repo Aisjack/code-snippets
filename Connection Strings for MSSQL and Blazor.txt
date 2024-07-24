@@ -1,0 +1,11 @@
+ Note: Used for users with !NO! credentials
+ 
+  "ConnectionStrings": {
+    "DefaultConnection": "Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=DDDTesting;Integrated Security=True"
+  }
+
+ Note: Used for users with credentials
+
+  "ConnectionStrings": {
+    "DefaultConnection": "Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=DDDTesting; User Id=sa; Password=radar; Encrypt=false;"
+  }
