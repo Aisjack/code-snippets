@@ -1,0 +1,75 @@
+**** Index.html file ****
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.css"/>
+    <title>Document</title>
+</head>
+<body class="main">
+    <button class="btn">Learn More</button>
+
+    <!-- target opens the link on another tab rel noopener noreferrer prevents phising known as tabnabbing.-->
+    <a href="https://uiverse.io/" target="_blank" rel="noopener noreferrer">uiverse.io</a> 
+</body>
+</html>
+
+
+**** Style.css File ****
+
+/* var declaration for easier setting of property and reusability */
+:root{
+    --clr-accent: pink;
+    --clr-rgba: rgb(255,192,203, 0.2);
+}
+
+/* centers a button using flex */
+.main{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn{
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 0.5rem 1em;
+    color: var(--clr-accent);
+    background-color: var(--clr-rgba);
+    border: 10px solid var(--clr-accent);
+    border-radius: 5px;
+
+    transition: transform 0.3s ease-in; /* property duration timing-function */
+}
+
+/* on hover pseudo class on button */
+.btn:hover{
+    transform: translateY(-10px);
+}
+
+/* Animation declaration */
+@keyframes slideFromLeft {
+    from{
+        transform: translateX(-300px);
+    }
+
+    to{
+        transform: translateX(0);
+    }
+}
+
+
+/* setting animation to h1 */
+h1{
+    animation: slideFromLeft 1s ease-in infinite; /* name duration timing-function iteration-count */
+}
+
+/* setting animation to h2 */
+h2{
+    transform: translateX(-300px);
+    animation: slideFromLeft 2s 1s ease-in infinite both; /* name duration timing-function iteration-count fill-mode */
+}
