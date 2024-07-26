@@ -1,3 +1,7 @@
 https://auth0.com/blog/auth0-authentication-blazor-web-apps/
-Note: this article explains how to implement 0Auth for Blazor Auto Render Model
+Note: this article by andrea-chiarelli explains how to implement 0Auth for Blazor Auto Render Model
 It can be also be a reference for Blazor Server and Blazor Wasm
+
+
+https://auth0.com/blog/what-is-blazor-tutorial-on-building-webapp-with-authentication/#Securing-the-Application-with-Auth0
+Note: This article andrea-chiarelli explains how what blazor is and how to implement authentication for blazor server Dotnet 6
