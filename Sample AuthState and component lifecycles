@@ -68,5 +68,8 @@
         Runs every time a parameter value changes.
         Good for reacting to changes in input parameters.
 
+        Add Note: Use AfterRender mainly on server side rendered apps because in client side you already download then scripts needed to run functions and methods
+                    while in serverside you don't download scripts all scripts are ran on the server then all static files are given to the client
+
     */
 }
